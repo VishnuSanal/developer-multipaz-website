@@ -1,0 +1,273 @@
+<!doctype html>
+<html lang="en" dir="ltr" class="docs-wrapper plugin-docs plugin-id-contributing docs-version-current docs-doc-page docs-doc-id-TESTING" data-has-hydrated="false">
+<head>
+<meta charset="UTF-8">
+<meta name="generator" content="Docusaurus v3.8.0">
+<title data-rh="true">Testing | Multipaz</title><meta data-rh="true" name="viewport" content="width=device-width,initial-scale=1"><meta data-rh="true" name="twitter:card" content="summary_large_image"><meta data-rh="true" property="og:image" content="https://multipaz.org/img/multipaz.png"><meta data-rh="true" name="twitter:image" content="https://multipaz.org/img/multipaz.png"><meta data-rh="true" property="og:url" content="https://multipaz.org/contributing/TESTING"><meta data-rh="true" property="og:locale" content="en"><meta data-rh="true" name="docusaurus_locale" content="en"><meta data-rh="true" name="docsearch:language" content="en"><meta data-rh="true" name="docusaurus_version" content="current"><meta data-rh="true" name="docusaurus_tag" content="docs-contributing-current"><meta data-rh="true" name="docsearch:version" content="current"><meta data-rh="true" name="docsearch:docusaurus_tag" content="docs-contributing-current"><meta data-rh="true" property="og:title" content="Testing | Multipaz"><meta data-rh="true" name="description" content="This file describes how to manually test the Multipaz project. As a baseline, we strive for unit"><meta data-rh="true" property="og:description" content="This file describes how to manually test the Multipaz project. As a baseline, we strive for unit"><link data-rh="true" rel="icon" href="/img/favicon.ico"><link data-rh="true" rel="canonical" href="https://multipaz.org/contributing/TESTING"><link data-rh="true" rel="alternate" href="https://multipaz.org/contributing/TESTING" hreflang="en"><link data-rh="true" rel="alternate" href="https://multipaz.org/contributing/TESTING" hreflang="x-default"><script data-rh="true" type="application/ld+json">{"@context":"https://schema.org","@type":"BreadcrumbList","itemListElement":[{"@type":"ListItem","position":1,"name":"Testing","item":"https://multipaz.org/contributing/TESTING"}]}</script><link rel="stylesheet" href="/assets/css/styles.e2ae0c86.css">
+<script src="/assets/js/runtime~main.59509107.js" defer="defer"></script>
+<script src="/assets/js/main.28cfc72d.js" defer="defer"></script>
+</head>
+<body class="navigation-with-keyboard">
+<svg xmlns="http://www.w3.org/2000/svg" style="display: none;"><defs>
+<symbol id="theme-svg-external-link" viewBox="0 0 24 24"><path fill="currentColor" d="M21 13v10h-21v-19h12v2h-10v15h17v-8h2zm3-12h-10.988l4.035 4-6.977 7.07 2.828 2.828 6.977-7.07 4.125 4.172v-11z"/></symbol>
+</defs></svg>
+<script>!function(){var t="light";var e=function(){try{return new URLSearchParams(window.location.search).get("docusaurus-theme")}catch(t){}}()||function(){try{return window.localStorage.getItem("theme")}catch(t){}}();document.documentElement.setAttribute("data-theme",e||t),document.documentElement.setAttribute("data-theme-choice",e||t)}(),function(){try{const c=new URLSearchParams(window.location.search).entries();for(var[t,e]of c)if(t.startsWith("docusaurus-data-")){var a=t.replace("docusaurus-data-","data-");document.documentElement.setAttribute(a,e)}}catch(t){}}()</script><div id="__docusaurus"><link rel="preload" as="image" href="/img/multipaz.png"><div role="region" aria-label="Skip to main content"><a class="skipToContent_fXgn" href="#__docusaurus_skipToContent_fallback">Skip to main content</a></div><nav aria-label="Main" class="theme-layout-navbar navbar navbar--fixed-top"><div class="navbar__inner"><div class="theme-layout-navbar-left navbar__items"><button aria-label="Toggle navigation bar" aria-expanded="false" class="navbar__toggle clean-btn" type="button"><svg width="30" height="30" viewBox="0 0 30 30" aria-hidden="true"><path stroke="currentColor" stroke-linecap="round" stroke-miterlimit="10" stroke-width="2" d="M4 7h22M4 15h22M4 23h22"></path></svg></button><a class="navbar__brand" href="/"><div class="navbar__logo"><img src="/img/multipaz.png" alt="MultipazLogo" class="themedComponent_mlkZ themedComponent--light_NVdE"><img src="/img/multipaz.png" alt="MultipazLogo" class="themedComponent_mlkZ themedComponent--dark_xIcU"></div><b class="navbar__title text--truncate">Multipaz</b></a><a class="navbar__item navbar__link" href="/overview/getting-started">Get Started</a><a class="navbar__item navbar__link" href="/kdocs">API Reference</a><a class="navbar__item navbar__link" href="/codelabs/codelabs">Codelabs</a><a class="navbar__item navbar__link" href="/contributing/contributing">Contributing</a><a class="navbar__item navbar__link" href="/changelog/changelog">Changelog</a><a class="navbar__item navbar__link" href="/showcase/showcase">Showcase</a></div><div class="theme-layout-navbar-right navbar__items navbar__items--right"><a href="https://github.com/facebook/docusaurus" target="_blank" rel="noopener noreferrer" class="navbar__item navbar__link">GitHub<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a><div class="toggle_vylO colorModeToggle_DEke"><button class="clean-btn toggleButton_gllP toggleButtonDisabled_aARS" type="button" disabled="" title="system mode" aria-label="Switch between dark and light mode (currently system mode)"><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP lightToggleIcon_pyhR"><path fill="currentColor" d="M12,9c1.65,0,3,1.35,3,3s-1.35,3-3,3s-3-1.35-3-3S10.35,9,12,9 M12,7c-2.76,0-5,2.24-5,5s2.24,5,5,5s5-2.24,5-5 S14.76,7,12,7L12,7z M2,13l2,0c0.55,0,1-0.45,1-1s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S1.45,13,2,13z M20,13l2,0c0.55,0,1-0.45,1-1 s-0.45-1-1-1l-2,0c-0.55,0-1,0.45-1,1S19.45,13,20,13z M11,2v2c0,0.55,0.45,1,1,1s1-0.45,1-1V2c0-0.55-0.45-1-1-1S11,1.45,11,2z M11,20v2c0,0.55,0.45,1,1,1s1-0.45,1-1v-2c0-0.55-0.45-1-1-1C11.45,19,11,19.45,11,20z M5.99,4.58c-0.39-0.39-1.03-0.39-1.41,0 c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0s0.39-1.03,0-1.41L5.99,4.58z M18.36,16.95 c-0.39-0.39-1.03-0.39-1.41,0c-0.39,0.39-0.39,1.03,0,1.41l1.06,1.06c0.39,0.39,1.03,0.39,1.41,0c0.39-0.39,0.39-1.03,0-1.41 L18.36,16.95z M19.42,5.99c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06c-0.39,0.39-0.39,1.03,0,1.41 s1.03,0.39,1.41,0L19.42,5.99z M7.05,18.36c0.39-0.39,0.39-1.03,0-1.41c-0.39-0.39-1.03-0.39-1.41,0l-1.06,1.06 c-0.39,0.39-0.39,1.03,0,1.41s1.03,0.39,1.41,0L7.05,18.36z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP darkToggleIcon_wfgR"><path fill="currentColor" d="M9.37,5.51C9.19,6.15,9.1,6.82,9.1,7.5c0,4.08,3.32,7.4,7.4,7.4c0.68,0,1.35-0.09,1.99-0.27C17.45,17.19,14.93,19,12,19 c-3.86,0-7-3.14-7-7C5,9.07,6.81,6.55,9.37,5.51z M12,3c-4.97,0-9,4.03-9,9s4.03,9,9,9s9-4.03,9-9c0-0.46-0.04-0.92-0.1-1.36 c-0.98,1.37-2.58,2.26-4.4,2.26c-2.98,0-5.4-2.42-5.4-5.4c0-1.81,0.89-3.42,2.26-4.4C12.92,3.04,12.46,3,12,3L12,3z"></path></svg><svg viewBox="0 0 24 24" width="24" height="24" aria-hidden="true" class="toggleIcon_g3eP systemToggleIcon_QzmC"><path fill="currentColor" d="m12 21c4.971 0 9-4.029 9-9s-4.029-9-9-9-9 4.029-9 9 4.029 9 9 9zm4.95-13.95c1.313 1.313 2.05 3.093 2.05 4.95s-0.738 3.637-2.05 4.95c-1.313 1.313-3.093 2.05-4.95 2.05v-14c1.857 0 3.637 0.737 4.95 2.05z"></path></svg></button></div><div class="navbarSearchContainer_Bca1"></div></div></div><div role="presentation" class="navbar-sidebar__backdrop"></div></nav><div id="__docusaurus_skipToContent_fallback" class="theme-layout-main main-wrapper mainWrapper_z2l0"><div class="docsWrapper_hBAB"><button aria-label="Scroll back to top" class="clean-btn theme-back-to-top-button backToTopButton_sjWU" type="button"></button><div class="docRoot_UBD9"><aside class="theme-doc-sidebar-container docSidebarContainer_YfHR"><div class="sidebarViewport_aRkj"><div class="sidebar_njMd"><nav aria-label="Docs sidebar" class="menu thin-scrollbar menu_SIkG"><ul class="theme-doc-sidebar-menu menu__list"><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/contributing/CONTRIBUTING">How to Contribute</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/contributing/CODE-OF-CONDUCT">Contributing</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/contributing/CODING-STYLE">Coding Style</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/contributing/DEVELOPER-ENVIRONMENT">Developer Environment</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link menu__link--active" aria-current="page" href="/contributing/TESTING">Testing</a></li><li class="theme-doc-sidebar-item-link theme-doc-sidebar-item-link-level-1 menu__list-item"><a class="menu__link" href="/contributing/MAINTAINERS">Maintainers</a></li></ul></nav></div></div></aside><main class="docMainContainer_TBSr"><div class="container padding-top--md padding-bottom--lg"><div class="row"><div class="col docItemCol_VOVn"><div class="docItemContainer_Djhp"><article><nav class="theme-doc-breadcrumbs breadcrumbsContainer_Z_bl" aria-label="Breadcrumbs"><ul class="breadcrumbs"><li class="breadcrumbs__item"><a aria-label="Home page" class="breadcrumbs__link" href="/"><svg viewBox="0 0 24 24" class="breadcrumbHomeIcon_YNFT"><path d="M10 19v-5h4v5c0 .55.45 1 1 1h3c.55 0 1-.45 1-1v-7h1.7c.46 0 .68-.57.33-.87L12.67 3.6c-.38-.34-.96-.34-1.34 0l-8.36 7.53c-.34.3-.13.87.33.87H5v7c0 .55.45 1 1 1h3c.55 0 1-.45 1-1z" fill="currentColor"></path></svg></a></li><li class="breadcrumbs__item breadcrumbs__item--active"><span class="breadcrumbs__link">Testing</span></li></ul></nav><div class="tocCollapsible_ETCw theme-doc-toc-mobile tocMobile_ITEo"><button type="button" class="clean-btn tocCollapsibleButton_TO0P">On this page</button></div><div class="theme-doc-markdown markdown"><header><h1>Testing</h1></header>
+<p>This file describes how to manually test the Multipaz project. As a baseline, we strive for unit
+tests when it&#x27;s possible but due to the nature of the project - involving QR, NFC, and Bluetooth
+Low Energy - this is not always feasible.</p>
+<p>It&#x27;s important that the tree remains in a &quot;green&quot; state all the time, that is, before
+merging any commit we must ensure that all unit tests pass, that manual tests pass,
+and that any new code has unit tests or manual tests.</p>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="how-to-test">How to test<a href="#how-to-test" class="hash-link" aria-label="Direct link to How to test" title="Direct link to How to test">​</a></h2>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="unit-tests">Unit tests<a href="#unit-tests" class="hash-link" aria-label="Direct link to Unit tests" title="Direct link to Unit tests">​</a></h3>
+<div class="language-shell codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-shell codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">$ ./gradlew check               # Runs all unit tests on the server</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">$ ./gradlew connectedCheck      # Runs all unit tests on connected devices (e.g. Android)</span><br></span></code></pre></div></div>
+<p>Also make sure this is run on a system which can build the entire project which includes
+libraries and applications for e.g. iOS. Practically speaking this may mean having to
+run this on a Mac.</p>
+<h3 class="anchor anchorWithStickyNavbar_LWe7" id="manual-testing">Manual testing<a href="#manual-testing" class="hash-link" aria-label="Direct link to Manual testing" title="Direct link to Manual testing">​</a></h3>
+<p>Our main tool for manual testing is the <code>samples/testapp</code> project. Conceptually, you
+want start at the main screen and do a depth-first search through and test everything.
+That said, use common sense, for example if your PR only involves changing something not
+related to proximity presentations, maybe skip this. That said, dependencies are not always
+obvious and a quick tap for mDL presentations is not a lot of work.</p>
+<p>There are elements in <code>samples/testapp</code> which aren&#x27;t obvious:</p>
+<ul>
+<li>
+<p>NFC engagement flows are invoked by just tapping the phone on a mDL reader.</p>
+<ul>
+<li>This works even when the app is not running and even on the lock screen.</li>
+<li>If changing some of the NFC engagement code also test when another wallet app claiming
+the NDEF AID is installed and that it works correctly with the NFC disambiguation dialog.
+There are some tricky parts involved here and it&#x27;s easy to break.</li>
+</ul>
+</li>
+<li>
+<p>W3C Digital Credentials API presentment flows are invoked from a browser.</p>
+<ul>
+<li>Launch Chrome (or other supported browser) and go to a verifier website</li>
+<li>You should be able to use <a href="http://127.0.0.1/server/verifier.html" target="_blank" rel="noopener noreferrer">http://127.0.0.1/server/verifier.html</a> - just make sure you
+are running the server locally via <code>./gradlew server:tomcatRun</code> and configured the
+server appropriately.</li>
+</ul>
+</li>
+</ul>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="setting-up-a-local-server">Setting up a local server<a href="#setting-up-a-local-server" class="hash-link" aria-label="Direct link to Setting up a local server" title="Direct link to Setting up a local server">​</a></h4>
+<p>Some of the testing steps require running a local server to handle issuance and verification requests. There are several
+possible approaches to do this. One of the simpler ones, if you&#x27;re planning on running Testapp on a physical device:</p>
+<ol>
+<li>Ensure the test device is running and is visible and authorized for ADB: <code>adb devices -l</code></li>
+<li>Forward the test device&#x27;s port 8080 to the dev machine&#x27;s port 8080: <code>adb reverse tcp:8080 tcp:8080</code></li>
+<li>Start the server: <code>./gradlew server:tomcatRun</code></li>
+<li>For verification (sharing a document), on the test device, navigate to: <code>http://localhost:8080/server/verifier.html</code></li>
+<li>Enable support for Web Identity Digital Credentials: In your Chrome browser, go to <code>chrome://flags#web-identity-digital-credentials</code>, enable the feature, and restart your browser.
+This is required to avoid errors like <code>TypeError: cannot read properties of undefined (reading &#x27;get&#x27;)</code></li>
+</ol>
+<h4 class="anchor anchorWithStickyNavbar_LWe7" id="test-matrix">Test Matrix<a href="#test-matrix" class="hash-link" aria-label="Direct link to Test Matrix" title="Direct link to Test Matrix">​</a></h4>
+<p>This is a more detailed checklist that needs to be tested before each release. This can serve as a guide for an
+individual PR, but it&#x27;s generally not necessary to test every single one of these for every PR (see above regarding
+common sense):</p>
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->About<!-- -->
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Version number matches what&#x27;s expected</li>
+</ul>
+</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Document Store<!-- -->
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Able to create documents in the Platform Secure Area</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Delete All Documents works</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Able to create documents in the Software Secure Area</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Cloud Secure Area<!-- -->
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Follow the steps above in &quot;Setting up a local server&quot;</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Able to create documents in the Cloud Secure Area (with test server running on localhost)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Software Secure Area<!-- -->
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->&quot;ESP256 - Passphrase&quot; requests a passphrase and requires the correct passphrase</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Spot check other algorithms, with and without passphrases</li>
+</ul>
+</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Android Keystore Secure Area<!-- -->
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Versions and Capabilities dialog works. &quot;User Auth&quot; and &quot;Secure Lock Screen&quot; display correct values</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Attestation screen shows at least one valid certificate, possibly multiple</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Strongbox Attestation shows at least one valid certificate, possibly multiple</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Spot check some different algorithms</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->An algorithm with &quot;Auth&quot; works</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->An algorithm with (LSKF Only) works</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->An algorithm with (Biometric Only) works</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Strongbox ESP256 works</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Strongbox ED25519 fails (unsupported)</li>
+</ul>
+</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Cloud Secure Area<!-- -->
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Follow the steps above in &quot;Setting up a local server&quot;</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Connecting, selecting the localhost URL, works successfully</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->CSA Attestation shows a valid certificate (possibly more than one)</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Spot check some different algorithms</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->An algorithm with &quot;Auth&quot; works</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->An algorithm with (PIN Only) works</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->An algorithm with (Biometric Only) works</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->An algorithm with (PIN or Biometric) works</li>
+</ul>
+</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->PassphraseEntryField use-cases (make sure to try both failing and successful cases for each)<!-- -->
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->4-Digit PIN (checkWeak=false)</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->4-Digit PIN (checkWeak=true) with a weak pin (eg. 1111) and with a not-weak pin (eg. 1112)</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Spot check other PIN lengths</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Spot check passphrase options</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->No constraints (checkWeak=true)</li>
+</ul>
+</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->PassphrasePrompt use-cases (make sure to try both failing and successful cases for each)<!-- -->
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Spot check several PIN and Passphrase options</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->No constraints</li>
+</ul>
+</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->ConsentModalBottomSheet use-cases<!-- -->
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Spot check several options</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Make sure &quot;Cancel&quot; shows a message that the sheet was dismissed</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Make sure swiping down shows a message that the sheet was dismissed</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Make sure &quot;Unknown Verifier (Proximity)&quot; options show a red warning</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Make sure &quot;Unknown Verifier (Website)&quot; options show a URL in the title and a red warning</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Make sure (Partially Stored) options show some claims that are stored and some that are only shared</li>
+</ul>
+</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->QR code generation and scanning (you&#x27;ll need two devices)<!-- -->
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Show mdoc QR code shows a QR code</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Show URL QR code shows a QR code</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Scan mdoc QR code does not scan the &quot;Show URL QR code&quot; code</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Scan mdoc QR code successfully scans the &quot;Show mdoc QR code&quot; code</li>
+</ul>
+</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->NFC sharing and scanning (you&#x27;ll need two devices)<!-- -->
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Scan for NDEF tag and read CC file successfully reads a nearby NFC device</li>
+</ul>
+</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->ISO mdoc Proximity Reading (on one device, with ISO mdoc Proximity Sharing on another)<!-- -->
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->On both devices, click the gear icon in top-right to go to Settings. Scroll down and press the &quot;Reset Settings&quot;
+button.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Request by QR code works</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Request by NFC works<!-- -->
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->In Settings, ensure that &quot;Use NFC Negotiated Handover&quot; is checked and verify that NFC sharing works<!-- -->
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->In Settings, &quot;ISO mdoc reader Transports (NFC Negotiated Handover)&quot;, check only Central client mode on both
+devices and verify NFC sharing works.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->In Settings, &quot;ISO mdoc reader Transports (NFC Negotiated Handover)&quot;, check only Peripheral server mode on
+both devices and verify NFC sharing works.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->In Settings, &quot;ISO mdoc reader Transports (NFC Negotiated Handover)&quot;, check only NFC Data Transfer on
+both devices and verify NFC sharing works. You&#x27;ll need to keep the devices in NFC range while the data
+transfers.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->In Settings, &quot;ISO mdoc reader Transports (NFC Negotiated Handover)&quot;, check all options, including
+&quot;Automatically select transport&quot; and verify NFC sharing works.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->In Settings, on both devices, Reset Settings, then under &quot;ISO mdoc reader Transports (NFC Negotiated
+Handover),&quot; uncheck &quot;Use L2CAP if available&quot; and verify NFC sharing works.</li>
+</ul>
+</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->In Settings, check &quot;Use NFC Static Handover&quot; on both devices and verify NFC sharing works<!-- -->
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->In Settings, &quot;ISO mdoc Transports (QR and NFC Static Handover)&quot;, check only Peripheral server mode on both
+devices and verify NFC sharing works.</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->In Settings, &quot;ISO mdoc Transports (QR and NFC Static Handover)&quot;, check only NFC Data Transfer on both
+devices and verify NFC sharing works.</li>
+</ul>
+</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->There are numerous other combinations in the Settings screen. Spot check a few other combinations. If any of
+them fail, ensure that they&#x27;re added to this test matrix (and file bugs to fix them).</li>
+</ul>
+</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Spot check some of the different Data Elements that can be requested<!-- -->
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Requesting a Driving License works</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Requesting a Photo ID shows a disambiguation dialog</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Requesting a Photo ID works</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Requesting an EU Personal ID works</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Requesting a Movie Ticket does not work for in-person presentation (this only works on a remote server)</li>
+</ul>
+</li>
+</ul>
+</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->ISO mdoc Multi-Device Testing (Requires two devices)<!-- -->
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Reset Bluetooth on both devices (turn Bluetooth off and then on again)</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Set up one device with &quot;Happy Flow Short (20 iterations)&quot;</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Set up the other with &quot;Run Multi-Device Tests as Client&quot; and scan the QR code</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->The &quot;Happy Flow Short (20 iterations)&quot; tests pass<!-- -->
+<ul>
+<li>Note that instability in the BT stack can make these flaky, but ideally 100% of them should pass.</li>
+</ul>
+</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->The &quot;All Tests &amp; Corner-cases&quot; tests pass</li>
+</ul>
+</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->CertificateViewer Examples<!-- -->
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Expired Android Keystore Attestation chain shows expired certs</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Maryland IACA certificate shows a cert from US-MD, from the Maryland MVA</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->&quot;Certificate valid in the future...&quot; Validity Info shows when the cert will become active</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->&quot;Certificate valid in the future...&quot; shows an Unknown OID</li>
+</ul>
+</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Rich text<!-- -->
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Correctly displays the title, list, subheading, circle, star, and link</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Clicking the link works</li>
+</ul>
+</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Notifications<!-- -->
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Requests notification permission if it hasn&#x27;t been granted</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Post notification with image includes an image</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Post notification without image shows only text</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Update last notification changes the text of the last notification</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Cancel last notification removes the last notification</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Cancel all notifications removes all of them</li>
+</ul>
+</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Screen lock<!-- -->
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Indicates that the device has a screen lock, if it has one</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Remove the screen lock from the device, then return to this screen</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Shows a button to set a screen lock, if the device doesn&#x27;t have one</li>
+</ul>
+</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Testing against an online server<!-- -->
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Follow the steps above in &quot;Setting up a local server&quot;</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->On the test device, navigate to: <code>http://localhost:8080/server/verifier.html</code></li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Ensure that the Protocol is set to &quot;W3C Digital Credentials API (OpenID4VP)&quot;<!-- -->
+<ul class="contains-task-list containsTaskList_mC6p">
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Request a Driving License (mdoc), Mandatory Data Elements</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Request an EU Personal ID (mdoc), All Data Elements</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Request a Photo ID (mdoc), Age Over 18 + Portrait</li>
+<li class="task-list-item"><input type="checkbox" disabled=""> <!-- -->Request a Movie Ticket (VC), All Data Elements</li>
+</ul>
+</li>
+</ul>
+</li>
+</ul>
+<h2 class="anchor anchorWithStickyNavbar_LWe7" id="recording-testing-activity-in-commit-messages">Recording testing activity in commit messages<a href="#recording-testing-activity-in-commit-messages" class="hash-link" aria-label="Direct link to Recording testing activity in commit messages" title="Direct link to Recording testing activity in commit messages">​</a></h2>
+<p>In order to have your PR approved, you have to convince the reviewer that it doesn&#x27;t include any
+regressions. This means that you need to pass all existing tests and also - when applicable - add
+new tests. The reviewer should never have to ask about this so the way we do this is by
+including <code>Test:</code> stanzas in the commit message conveying this important information.</p>
+<p>This doesn&#x27;t have to be machine-readable but it does have to make sense to the reviewer
+and others reading the commit log. Use your best judgement and look at previous commit
+messages for what others are doing. Here&#x27;s a couple of examples:</p>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">Test: New unit tests.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Test: ./gradlew check &amp;&amp; ./gradlew connectedCheck</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Test: Carefully tested, during four days at two interoperability events.</span><br></span></code></pre></div></div>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">Test: New unit tests and all unit tests pass.</span><br></span><span class="token-line" style="color:#393A34"><span class="token plain">Test: Manually tested (both samples/testapp and wallet module)</span><br></span></code></pre></div></div>
+<div class="language-text codeBlockContainer_Ckt0 theme-code-block" style="--prism-color:#393A34;--prism-background-color:#f6f8fa"><div class="codeBlockContent_QJqH"><pre tabindex="0" class="prism-code language-text codeBlock_bY9V thin-scrollbar" style="color:#393A34;background-color:#f6f8fa"><code class="codeBlockLines_e6Vv"><span class="token-line" style="color:#393A34"><span class="token plain">Test: Manually tested against 5+ different wallets and readers.</span><br></span></code></pre></div></div></div></article><nav class="docusaurus-mt-lg pagination-nav" aria-label="Docs pages"><a class="pagination-nav__link pagination-nav__link--prev" href="/contributing/DEVELOPER-ENVIRONMENT"><div class="pagination-nav__sublabel">Previous</div><div class="pagination-nav__label">Developer Environment</div></a><a class="pagination-nav__link pagination-nav__link--next" href="/contributing/MAINTAINERS"><div class="pagination-nav__sublabel">Next</div><div class="pagination-nav__label">Maintainers</div></a></nav></div></div><div class="col col--3"><div class="tableOfContents_bqdL thin-scrollbar theme-doc-toc-desktop"><ul class="table-of-contents table-of-contents__left-border"><li><a href="#how-to-test" class="table-of-contents__link toc-highlight">How to test</a><ul><li><a href="#unit-tests" class="table-of-contents__link toc-highlight">Unit tests</a></li><li><a href="#manual-testing" class="table-of-contents__link toc-highlight">Manual testing</a></li></ul></li><li><a href="#recording-testing-activity-in-commit-messages" class="table-of-contents__link toc-highlight">Recording testing activity in commit messages</a></li></ul></div></div></div></div></main></div></div></div><footer class="theme-layout-footer footer footer--dark"><div class="container container-fluid"><div class="row footer__links"><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Docs</div><ul class="footer__items clean-list"><li class="footer__item"><a class="footer__link-item" href="/docs/getting-started">Get Started</a></li><li class="footer__item"><a class="footer__link-item" href="/kdocs">API Reference</a></li><li class="footer__item"><a class="footer__link-item" href="/docs/codelabs">Codelabs</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">Community</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://discord.gg/openwalletfoundation" target="_blank" rel="noopener noreferrer" class="footer__link-item">Discord<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li><li class="footer__item"><a class="footer__link-item" href="/showcase/">Showcase</a></li></ul></div><div class="theme-layout-footer-column col footer__col"><div class="footer__title">More</div><ul class="footer__items clean-list"><li class="footer__item"><a href="https://github.com/facebook/docusaurus" target="_blank" rel="noopener noreferrer" class="footer__link-item">GitHub<svg width="13.5" height="13.5" aria-hidden="true" class="iconExternalLink_nPIU"><use href="#theme-svg-external-link"></use></svg></a></li></ul></div></div><div class="footer__bottom text--center"><div class="footer__copyright">Copyright © 2025 Open Wallet Foundation. Built with <a href="https://github.com/facebook/docusaurus">Docusaurus</a>.</div></div></div></footer></div>
+</body>
+</html>
